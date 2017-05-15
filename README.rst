@@ -1,3 +1,6 @@
+.. image:: http://image.prntscr.com/image/72e6a7929b3249199e3e10b7efa18a23.png
+    :target: https://github.com/andrei4ka/top-consumers-plugin
+
 =================
 TOP Consumers Horizon Dashboard
 =================
