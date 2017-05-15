@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Top Consumers" %}{% endblock %}
+
+{% block page_header %}
+  <hz-page-header
+    header="{$ 'Top Consumers' | translate $}">
+  </hz-page-header>
+{% endblock page_header %}
+
+{% block main %}
+  {% include "admin/topconsumers/_filter.html" %}
+  {{ table.render }}
+{% endblock %}
