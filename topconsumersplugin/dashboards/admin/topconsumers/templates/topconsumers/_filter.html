@@ -1,0 +1,62 @@
+{% load i18n %}
+<div id="topconsumers-filter">
+    <form class="form-horizontal" action="" method="get">
+        <div class="form-group">
+            <label for="meter" class="col-sm-2 control-label">{% trans "Metric:" %}</label>
+            <div class="col-sm-4 line_chart_time_picker">
+                <select name="meter" id="meter" class="form-control">
+
+                    {% if meters.nova_meters %}
+                    <optgroup label='{% trans "Compute (Nova)" %}'>
+                        {% for meter in meters.nova_meters %}
+                        <option title="{{ meter.description }}" value="{{ meter.name }}" data-unit="{{ meter.unit }}">
+                            {{ meter.label }}
+                        </option>
+                        {% endfor %}
+                    </optgroup>
+                    {% endif %}
+
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="stats_attr" class="col-sm-2 control-label">{% trans "Value:" %}</label>
+            <div class="col-sm-4">
+                <select id="stats_attr" name="stats_attr" class="form-control">
+
+                    <option selected="selected" value="avg">{% trans "Avg." %}</option>
+                    <option value="min">{% trans "Min." %}</option>
+                    <option value="max">{% trans "Max." %}</option>
+                    <option value="sum">{% trans "Sum." %}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="date_options" class="col-sm-2 control-label">{% trans "Period:" %}</label>
+            <div class="col-sm-4">
+                <select id="date_options" name="date_options" class="form-control">
+                    <option value="3">{% trans "3 min." %}</option>
+                    <option value="5" selected="selected">{% trans "5 min." %}</option>
+                    <option value="10">{% trans "10 min." %}</option>
+                    <option value="30">{% trans "30 min." %}</option>
+                    <option value="60">{% trans "60 min." %}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="limit" class="col-sm-2 control-label">{% trans "Limit:" %}</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="limit" name="limit" value="30">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-4 col-sm-offset-2">
+                <button type="submit" class="btn btn-primary">Filter</button>
+            </div>
+        </div>
+    </form>
+</div>

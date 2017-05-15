@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Top Consumers{% endblock %}
+
+{% block page_header %}
+  <hz-page-header
+    header="Top Consumers">
+  </hz-page-header>
+{% endblock page_header %}
+
+{% block main %}
+  {% include "admin/topconsumers/_filter.html" %}
+  {{ table.render }}
+{% endblock %}
